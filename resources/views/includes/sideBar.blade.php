@@ -31,15 +31,7 @@
 
 
 
-                    @role('admin')
-                    <li class="has-submenu"><a href="#"><!-- <i class="ion-compose"></i> --> <span class="nav-label">Manager</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{!! route('user.create') !!}">Create Manager</a></li>
-                            <li><a href="{!! route('user.index') !!}">All Managers</a></li>
-
-                        </ul>
-                    </li>
-                    @endrole
+                   
                     <li class="has-submenu"><a href="#"><!-- <i class="ion-stats-bars"></i> --> <span class="nav-label">Example</span><!-- <span class="badge bg-purple">1</span> --></a>
                         <ul class="list-unstyled">
                             <li><a href="{!! route('example.create') !!}">Create New</a></li>

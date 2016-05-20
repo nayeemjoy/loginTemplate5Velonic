@@ -12,22 +12,16 @@
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
-            <h3 class="text-center m-t-10"> Sign Up In <strong>Laravel 5.1</strong> </h3>
+            <h3 class="text-center m-t-10"> Register In <strong>{!! Config::get('customConfig.names.siteName')!!}</strong> </h3>
         </div>
         <br>
         @include('includes.alert')
 
-        {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
+        {!! Form::open(array('route' => 'register', 'method' => 'post', 'class' => 'form-signin')) !!}
 
         <div class="form-group ">
             <div class="col-xs-12"><br>
-                {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
-            </div>
-        </div>
-
-        <div class="form-group ">
-            <div class="col-xs-12"><br>
-                {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+                {!! Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus')) !!}
             </div>
         </div>
 
@@ -60,20 +54,18 @@
 
 
         <center>
-            <p>or you can sign up via social network</p>
+            <!-- <p>or you can sign up via social network</p> -->
 
-            <div class="login-social-link">
+            <!-- <div class="login-social-link">
                 <a href="{{ route('login/fb') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->
+                <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a>
                 <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
-            </div>
+            </div> -->
 
 
             <div class="registration">
-                <br>
-                Already have an account?
                 <a class="" href="{{ route('login') }}">
-                    Log In
+                    Already have an account?
                 </a>
             </div>
         </center>
