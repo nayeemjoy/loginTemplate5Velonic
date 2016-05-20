@@ -17,7 +17,7 @@ class ExampleController extends Controller
      */
     public function index()
     {
-        $examples = Example::whereManagerId(Auth::user()->id)->get();
+        $examples = Example::all();
         return view('example.index')
                     ->with('title', 'Examples')->with('examples', $examples);
     }
@@ -28,9 +28,13 @@ class ExampleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-         return view('example.create')
-                    ->with('title', 'Create Example');
+    {   
+        $statuses = [
+            'disable' => 'Disable',
+            'enable' => 'Enable'
+        ];
+        return view('example.create')
+                    ->with('title', 'Create Example')->with('statuses',$statuses);
     }
 
     /**
@@ -42,9 +46,9 @@ class ExampleController extends Controller
     public function store(Request $request)
     {
         $rules =[
-            'name'              => 'required',
-            'passport_no'       => 'required',
-            'broker_name'       => 'required'
+            'title'              => 'required',
+            'description'       => 'required',
+            'status'       => 'required'
         ];
         $data = $request->all();
 
@@ -52,23 +56,22 @@ class ExampleController extends Controller
 
         if($validation->fails()){
             return redirect()->back()->withErrors($validation)->withInput();
-        }else{
-            $example = new example;
-            $example->name = $data['name'];
-            $example->passport_no = $data['passport_no'];
-            $example->broker_name = $data['broker_name'];
-            $example->manager_id = Auth::user()->id;
-            
-            
-            if($example->save()){
-                // Auth::logout();
-                return redirect()->route('example.index')
-                            ->with('success','Created successfully.');
-            }else{
-                return redirect()->route('dashboard')
-                            ->with('error',"Something went wrong.Please Try again.");
-            }
         }
+        $example = new Example;
+        $example->title = $data['title'];
+        $example->description = $data['description'];
+        $example->status = $data['status'];
+        $example->user_id = Auth::user()->id;
+        
+        
+        if($example->save()){
+            return redirect()->route('example.index')
+                        ->with('success','Created successfully.');
+        }
+        return redirect()->route('dashboard')
+                    ->with('error',"Something went wrong.Please Try again.");
+            
+    
     }
 
     /**
@@ -92,9 +95,13 @@ class ExampleController extends Controller
      */
     public function edit($id)
     {
+        $statuses = [
+            'disable' => 'Disable',
+            'enable' => 'Enable'
+        ];
         $example = Example::find($id);
         return view('example.edit')
-                    ->with('title', 'Update Example')->with('example', $example);
+                    ->with('title', 'Update Example')->with('example', $example)->with('statuses',$statuses);
     }
 
     /**
@@ -106,10 +113,10 @@ class ExampleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules =[
-            'name'              => 'required',
-            'passport_no'       => 'required',
-            'broker_name'       => 'required'
+         $rules =[
+            'title'              => 'required',
+            'description'       => 'required',
+            'status'       => 'required'
         ];
         $data = $request->all();
 
@@ -117,23 +124,18 @@ class ExampleController extends Controller
 
         if($validation->fails()){
             return redirect()->back()->withErrors($validation)->withInput();
-        }else{
-            $example = Example::find($id);
-            $example->name = $data['name'];
-            $example->passport_no = $data['passport_no'];
-            $example->broker_name = $data['broker_name'];
-            // $example->manager_id = Auth::user()->id;
-            
-            
-            if($example->save()){
-                // Auth::logout();
-                return redirect()->route('example.index')
-                            ->with('success','Updated successfully.');
-            }else{
-                return redirect()->route('dashboard')
-                            ->with('error',"Something went wrong.Please Try again.");
-            }
         }
+        $example = Example::find($id);
+        $example->title = $data['title'];
+        $example->description = $data['description'];
+        $example->status = $data['status'];
+
+        if($example->save()){
+            return redirect()->route('example.index')
+                        ->with('success','Updated successfully.');
+        }
+        return redirect()->route('dashboard')
+                    ->with('error',"Something went wrong.Please Try again.");
     }
 
     /**

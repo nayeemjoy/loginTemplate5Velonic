@@ -24,9 +24,9 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Passport No</th>
-                                            <th>Broker Name</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -37,9 +37,9 @@
                                             <tr>
 
                                                 <td>{{$example->id}}</td>
-                                                <td>{{$example->name}}</td>
-                                                <td>{{$example->passport_no}}</td>
-                                                <td>{{$example->broker_name}}</td>
+                                                <td>{{$example->title}}</td>
+                                                <td>{{$example->description}}</td>
+                                                <td>{{$example->status}}</td>
                                                 <td class="actions">
                                                     <a href="{{route('example.edit',$example->id)}}" class="btn btn-info">Edit</a>
                                                     <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $example->id }}">Delete</a>

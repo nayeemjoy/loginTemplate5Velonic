@@ -11,27 +11,28 @@
                     </span>
                 </div>
                 <div class="panel-body">
+                    
                     {!! Form::open(array('route' => 'example.store', 'class' => 'form-horizontal','files' => true)) !!}
 
-        <!-- input for tiltle -->
+       
+                    <div class="form-group">
+                        {!! Form::label('title', 'Title : ', array('class' => 'col-md-2 control-label')) !!}
+                        <div class="col-md-4">
+                            {!! Form::text('title', null, array('class' => 'form-control',  'placeholder' => 'Title', 'required')) !!}
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        {!! Form::label('description', 'Description : ', array('class' => 'col-md-2 control-label')) !!}
+                        <div class="col-md-4">
+                            {!! Form::text('description', null, array('class' => 'form-control',  'placeholder' => 'Description', 'required')) !!}
+                        </div>
+                    </div>
 
                     <div class="form-group">
-                        {!! Form::label('name', 'Name : ', array('class' => 'col-md-2 control-label')) !!}
+                        {!! Form::label('status', 'Status : ', array('class' => 'col-md-2 control-label')) !!}
                         <div class="col-md-4">
-                            {!! Form::text('name', null, array('class' => 'form-control',  'placeholder' => 'Name', 'required')) !!}
-                        </div>
-                    </div>
-        <!-- input for description -->
-                    <div class="form-group">
-                        {!! Form::label('passport_no', 'Passport No : ', array('class' => 'col-md-2 control-label')) !!}
-                        <div class="col-md-4">
-                            {!! Form::text('passport_no', null, array('class' => 'form-control',  'placeholder' => 'Passport No', 'required')) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('broker_name', 'Broker Name : ', array('class' => 'col-md-2 control-label')) !!}
-                        <div class="col-md-4">
-                            {!! Form::text('broker_name', null, array('class' => 'form-control',  'placeholder' => 'Broker Name', 'required')) !!}
+                            {!! Form::select('status',$statuses, 1, array('class' => 'form-control')) !!}
                         </div>
                     </div>       
 

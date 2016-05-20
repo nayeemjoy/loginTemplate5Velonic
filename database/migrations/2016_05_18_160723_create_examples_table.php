@@ -14,13 +14,15 @@ class CreateExamplesTable extends Migration
     {
         Schema::create('examples', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('passport_no');
-            $table->string('broker_name');
-            // $table->string('broker_name');
-            $table->integer('manager_id')->unsigned();
 
-            $table->foreign('manager_id')->references('id')->on('users')
+            $table->string('title');
+
+            $table->text('description');
+
+            $table->enum('status', ['enable', 'disable']);
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade'); 
             $table->timestamps();
         });

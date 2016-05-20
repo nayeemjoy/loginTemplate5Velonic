@@ -11,14 +11,15 @@ class ExampleTableSeeder extends Seeder
      */
     public function run()
     {
+      
         $faker = Faker\Factory::create();
 
         foreach(range(1, 20) as $index) { 
         	$example = new Example;
-        	$example->name = $faker->name;
-        	$example->passport_no = $faker->randomNumber;
-        	$example->broker_name = $faker->name;
-        	$example->manager_id = 1;
+        	$example->title = $faker->name;
+        	$example->description = $faker->paragraph;
+        	$example->status = 'disable';
+        	$example->user_id = 1;
         	$example->save();
         }
     }
