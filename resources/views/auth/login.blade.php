@@ -12,7 +12,7 @@
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
-            <h3 class="text-center m-t-10"> Sign In to <strong>Passport Manager</strong> </h3>
+            <h3 class="text-center m-t-10"> Sign In to <strong>{!! Config::get('customConfig.names.siteName')!!}</strong> </h3>
         </div>
         <br>
              @include('includes.alert')

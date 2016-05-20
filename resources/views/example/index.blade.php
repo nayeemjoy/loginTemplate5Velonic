@@ -1,11 +1,12 @@
 @extends('layouts.default')
 @section('content')
     @include('includes.alert')
-    <div class="container-fluid">
-        <!-- <div class="page-title"> 
+    <!-- DataTable Section Starts -->
+
+    <div class="wraper container-fluid">
+        <div class="page-title"> 
             <h3 class="title">{{$title}}</h3>
-            <a class="btn btn-danger deleteBtn pull-right">Create Manager</a> 
-        </div> -->
+        </div>
 
 
         <div class="row">
@@ -13,9 +14,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading clear-fix">
                         <h3 class="panel-title pull-left">{{$title}}</h3>
-                        <span class="pull-right">
-                            <a href="{{route('example.create')}}" class="btn btn-primary">Create Example</a>
-                        </span>
+                        <a href="{{route('example.create')}}" class="btn btn-primary pull-right">Create Example</a>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -41,6 +40,8 @@
                                                 <td>{{$example->description}}</td>
                                                 <td>{{$example->status}}</td>
                                                 <td class="actions">
+                                                    <a href="{{route('example.show',$example->id)}}" class="btn btn-warning">Details</a>
+
                                                     <a href="{{route('example.edit',$example->id)}}" class="btn btn-info">Edit</a>
                                                     <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $example->id }}">Delete</a>
                                                 </td>
@@ -54,12 +55,11 @@
                     </div>
                 </div>
             </div>
-            
-        </div> <!-- End Row -->
+        </div>
+    </div> 
+    <!-- DataTable Section Ends -->
 
-        
 
-    </div>
     <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">

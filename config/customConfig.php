@@ -2,7 +2,7 @@
 
 return [
     'names' =>[
-        'siteName' => 'Passport Manager'
+        'siteName' => 'Velonic'
     ],
     'roles' =>[
         'admin' => 'Admin',

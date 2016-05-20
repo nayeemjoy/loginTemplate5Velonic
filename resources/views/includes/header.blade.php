@@ -24,6 +24,8 @@
         {!! Html::style('assets/font-awesome/css/font-awesome.css') !!}
         {!! Html::style('assets/ionicon/css/ionicons.min.css') !!}
 
+        <!-- Datatable -->
+        {!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
 
                 <!--Morris Chart CSS -->
         {!! Html::style('assets/morris/morris.css') !!}
