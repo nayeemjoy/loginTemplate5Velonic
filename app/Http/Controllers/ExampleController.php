@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PassportReceive;
+use App\Example;
 use App\Http\Requests;
 use Validator;
 use App\Http\Controllers\Controller;
 use Auth;
-class PassportReceiveController extends Controller
+class ExampleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class PassportReceiveController extends Controller
      */
     public function index()
     {
-        $passport_receives = PassportReceive::whereManagerId(Auth::user()->id)->get();
-        return view('passportreceive.index')
-                    ->with('title', 'Passport Receives')->with('passport_receives', $passport_receives);
+        $examples = Example::whereManagerId(Auth::user()->id)->get();
+        return view('example.index')
+                    ->with('title', 'Examples')->with('examples', $examples);
     }
 
     /**
@@ -29,8 +29,8 @@ class PassportReceiveController extends Controller
      */
     public function create()
     {
-         return view('passportreceive.create')
-                    ->with('title', 'Create Passport Receives');
+         return view('example.create')
+                    ->with('title', 'Create Example');
     }
 
     /**
@@ -53,16 +53,16 @@ class PassportReceiveController extends Controller
         if($validation->fails()){
             return redirect()->back()->withErrors($validation)->withInput();
         }else{
-            $passport_receive = new PassportReceive;
-            $passport_receive->name = $data['name'];
-            $passport_receive->passport_no = $data['passport_no'];
-            $passport_receive->broker_name = $data['broker_name'];
-            $passport_receive->manager_id = Auth::user()->id;
+            $example = new example;
+            $example->name = $data['name'];
+            $example->passport_no = $data['passport_no'];
+            $example->broker_name = $data['broker_name'];
+            $example->manager_id = Auth::user()->id;
             
             
-            if($passport_receive->save()){
+            if($example->save()){
                 // Auth::logout();
-                return redirect()->route('passportreceive.index')
+                return redirect()->route('example.index')
                             ->with('success','Created successfully.');
             }else{
                 return redirect()->route('dashboard')
@@ -79,9 +79,9 @@ class PassportReceiveController extends Controller
      */
     public function show($id)
     {
-        $passport_receive = PassportReceive::find($id);
-        return view('passportreceive.edit')
-                    ->with('title', 'Create Passport Receives');
+        $example = Example::find($id);
+        return view('example.edit')
+                    ->with('title', 'Example');
     }
 
     /**
@@ -92,9 +92,9 @@ class PassportReceiveController extends Controller
      */
     public function edit($id)
     {
-        $passport_receive = PassportReceive::find($id);
-        return view('passportreceive.edit')
-                    ->with('title', 'Update Passport Receives')->with('passport_receive', $passport_receive);
+        $example = Example::find($id);
+        return view('example.edit')
+                    ->with('title', 'Update Example')->with('example', $example);
     }
 
     /**
@@ -118,16 +118,16 @@ class PassportReceiveController extends Controller
         if($validation->fails()){
             return redirect()->back()->withErrors($validation)->withInput();
         }else{
-            $passport_receive = PassportReceive::find($id);
-            $passport_receive->name = $data['name'];
-            $passport_receive->passport_no = $data['passport_no'];
-            $passport_receive->broker_name = $data['broker_name'];
-            // $passport_receive->manager_id = Auth::user()->id;
+            $example = Example::find($id);
+            $example->name = $data['name'];
+            $example->passport_no = $data['passport_no'];
+            $example->broker_name = $data['broker_name'];
+            // $example->manager_id = Auth::user()->id;
             
             
-            if($passport_receive->save()){
+            if($example->save()){
                 // Auth::logout();
-                return redirect()->route('passportreceive.index')
+                return redirect()->route('example.index')
                             ->with('success','Updated successfully.');
             }else{
                 return redirect()->route('dashboard')
@@ -145,9 +145,9 @@ class PassportReceiveController extends Controller
     public function destroy($id)
     {
         try {
-            $passport_receive = PassportReceive::find($id);
-            $passport_receive->delete();
-            return redirect()->route('passportreceive.index')
+            $example = Example::find($id);
+            $example->delete();
+            return redirect()->route('example.index')
                             ->with('success','Deleted successfully.');
         } catch (Exception $e) {
             

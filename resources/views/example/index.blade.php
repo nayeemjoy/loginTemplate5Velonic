@@ -14,7 +14,7 @@
                     <div class="panel-heading clear-fix">
                         <h3 class="panel-title pull-left">{{$title}}</h3>
                         <span class="pull-right">
-                            <a href="{{route('passportreceive.create')}}" class="btn btn-primary">Create Passport Receive</a>
+                            <a href="{{route('example.create')}}" class="btn btn-primary">Create Example</a>
                         </span>
                     </div>
                     <div class="panel-body">
@@ -26,7 +26,6 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Passport No</th>
-                                            <!-- <th>Query</th> -->
                                             <th>Broker Name</th>
                                             <th>Actions</th>
                                         </tr>
@@ -34,17 +33,16 @@
 
                              
                                     <tbody>
-                                        @foreach($passport_receives as $passport_receive)
+                                        @foreach($examples as $example)
                                             <tr>
 
-                                                <td>{{$passport_receive->id}}</td>
-                                                <td>{{$passport_receive->name}}</td>
-                                                <td>{{$passport_receive->passport_no}}</td>
-                                                <td>{{$passport_receive->broker_name}}</td>
-                                                <!-- <td>Description</td> -->
+                                                <td>{{$example->id}}</td>
+                                                <td>{{$example->name}}</td>
+                                                <td>{{$example->passport_no}}</td>
+                                                <td>{{$example->broker_name}}</td>
                                                 <td class="actions">
-                                                    <a href="{{route('passportreceive.edit',$passport_receive->id)}}" class="btn btn-info">Edit</a>
-                                                    <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $passport_receive->id }}">Delete</a>
+                                                    <a href="{{route('example.edit',$example->id)}}" class="btn btn-info">Edit</a>
+                                                    <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $example->id }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -73,7 +71,7 @@
                     Are you sure to delete?
                 </div>
                 <div class="modal-footer">
-                    {!! Form::open(array('route' => array('passportreceive.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
+                    {!! Form::open(array('route' => array('example.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     {!! Form::submit('Yes, Delete', array('class' => 'btn btn-success')) !!}
                     {!! Form::close() !!}
@@ -96,7 +94,7 @@
         });
         $(document).on("click", ".deleteBtn", function() {
             var deleteId = $(this).attr('deleteId');
-            var url = "<?php echo URL::route('passportreceive.delete',false); ?>";
+            var url = "<?php echo URL::route('example.delete',false); ?>";
             $(".deleteForm").attr("action", url+'/'+deleteId);
         });
     </script>

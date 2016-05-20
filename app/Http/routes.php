@@ -52,21 +52,12 @@ Route::group(array('middleware' => 'auth'), function()
 
 		});
 
-		
-		Route::get('passportreceives', array('as' => 'passportreceive.index', 'uses' => 'PassportReceiveController@index'));
-		Route::get('passportreceive/create', array('as' => 'passportreceive.create', 'uses' => 'PassportReceiveController@create'));
-		Route::post('passportreceive/store', array('as' => 'passportreceive.store', 'uses' => 'PassportReceiveController@store'));
-		Route::get('passportreceive/edit/{id}', array('as' => 'passportreceive.edit', 'uses' => 'PassportReceiveController@edit'));
-		Route::put('passportreceive/update/{id}', array('as' => 'passportreceive.update', 'uses' => 'PassportReceiveController@update'));
-		Route::delete('passportreceive/delete/{id}', array('as' => 'passportreceive.delete', 'uses' => 'PassportReceiveController@destroy'));
-
-
-		Route::get('passportmakings', array('as' => 'passportmaking.index', 'uses' => 'PassportMakingController@index'));
-		Route::get('passportmaking/create', array('as' => 'passportmaking.create', 'uses' => 'PassportMakingController@create'));
-		Route::post('passportmaking/store', array('as' => 'passportmaking.store', 'uses' => 'PassportMakingController@store'));
-		Route::get('passportmaking/edit/{id}', array('as' => 'passportmaking.edit', 'uses' => 'PassportMakingController@edit'));
-		Route::put('passportmaking/update/{id}', array('as' => 'passportmaking.update', 'uses' => 'PassportMakingController@update'));
-		Route::delete('passportmaking/delete/{id}', array('as' => 'passportmaking.delete', 'uses' => 'PassportMakingController@destroy'));
+		Route::get('examples', array('as' => 'example.index', 'uses' => 'ExampleController@index'));
+		Route::get('example/create', array('as' => 'example.create', 'uses' => 'ExampleController@create'));
+		Route::post('example/store', array('as' => 'example.store', 'uses' => 'ExampleController@store'));
+		Route::get('example/edit/{id}', array('as' => 'example.edit', 'uses' => 'ExampleController@edit'));
+		Route::put('example/update/{id}', array('as' => 'example.update', 'uses' => 'ExampleController@update'));
+		Route::delete('example/delete/{id}', array('as' => 'example.delete', 'uses' => 'ExampleController@destroy'));
 
 	});
 

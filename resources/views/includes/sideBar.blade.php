@@ -40,18 +40,13 @@
                         </ul>
                     </li>
                     @endrole
-                    <li class="has-submenu"><a href="#"><!-- <i class="ion-stats-bars"></i> --> <span class="nav-label">Passport Receive</span><!-- <span class="badge bg-purple">1</span> --></a>
+                    <li class="has-submenu"><a href="#"><!-- <i class="ion-stats-bars"></i> --> <span class="nav-label">Example</span><!-- <span class="badge bg-purple">1</span> --></a>
                         <ul class="list-unstyled">
-                            <li><a href="{!! route('passportreceive.create') !!}">Create New</a></li>
-                            <li><a href="{!! route('passportreceive.index') !!}">View All</a></li>
+                            <li><a href="{!! route('example.create') !!}">Create New</a></li>
+                            <li><a href="{!! route('example.index') !!}">View All</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu"><a href="#"><!-- <i class="ion-stats-bars"></i> --> <span class="nav-label">Passport Making</span><!-- <span class="badge bg-purple">1</span> --></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{!! route('passportmaking.create') !!}">Create New</a></li>
-                            <li><a href="{!! route('passportmaking.index') !!}">View All</a></li>
-                        </ul>
-                    </li>
+                  
 
                     <!-- <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
                         <ul class="list-unstyled">

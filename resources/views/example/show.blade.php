@@ -42,26 +42,7 @@
     </div>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
-                </div>
-                <div class="modal-body">
-                    Are you sure to delete?
-                </div>
-                <div class="modal-footer">
-                    {{ Form::open(array('route' => array('cards.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                    {{ Form::submit('Yes, Delete', array('class' => 'btn btn-success')) }}
-                    {{ Form::close() }}
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
 
 @stop
@@ -79,17 +60,7 @@
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
-            $.get("http://ipinfo.io", function(response) {
-                console.log(response.city, response.country,response.region);
-            }, "jsonp");
-            $('#example').dataTable({
-            });
-
-            $(document).on("click", ".deleteBtn", function() {
-                var deleteId = $(this).attr('deleteId');
-                var url = "<?php echo URL::route('cards.index'); ?>";
-                $(".deleteForm").attr("action", url+'/'+deleteId);
-            });
+           
         });
     </script>
 

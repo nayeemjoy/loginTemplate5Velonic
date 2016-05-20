@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePassportReceivesTable extends Migration
+class CreateExamplesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreatePassportReceivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('passport_receives', function (Blueprint $table) {
+        Schema::create('examples', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('passport_no');
@@ -33,6 +33,6 @@ class CreatePassportReceivesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('passport_receives');
+        Schema::drop('examples');
     }
 }
