@@ -55,6 +55,7 @@ Route::group(array('middleware' => 'auth'), function()
 		Route::get('examples', array('as' => 'example.index', 'uses' => 'ExampleController@index'));
 		Route::get('example/create', array('as' => 'example.create', 'uses' => 'ExampleController@create'));
 		Route::post('example/store', array('as' => 'example.store', 'uses' => 'ExampleController@store'));
+		Route::get('example/show/{id}', array('as' => 'example.show', 'uses' => 'ExampleController@show'));
 		Route::get('example/edit/{id}', array('as' => 'example.edit', 'uses' => 'ExampleController@edit'));
 		Route::put('example/update/{id}', array('as' => 'example.update', 'uses' => 'ExampleController@update'));
 		Route::delete('example/delete/{id}', array('as' => 'example.delete', 'uses' => 'ExampleController@destroy'));

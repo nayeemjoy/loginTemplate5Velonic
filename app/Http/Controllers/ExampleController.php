@@ -83,8 +83,8 @@ class ExampleController extends Controller
     public function show($id)
     {
         $example = Example::find($id);
-        return view('example.edit')
-                    ->with('title', 'Example');
+        return view('example.show')
+                    ->with('title', 'Example')->with('example', $example);
     }
 
     /**
