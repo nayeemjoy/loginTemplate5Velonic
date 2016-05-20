@@ -33,8 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create')
-                    ->with('title', 'Create Manager');
+        return view('auth.register')->with('title', 'Registration');
     }
 
     /**
@@ -59,15 +58,14 @@ class UserController extends Controller
         }else{
             $user = new User;
             $user->username = $data['username'];
-            // $user->email = $data['pasword'];
             $user->password = Hash::make($data['password']);
             
             if($user->save()){
-                $manager = Role::find(2);
-                $user->attachRole($manager);
+                $normal_user = Role::find(2);
+                $user->attachRole($normal_user);
                 // Auth::logout();
-                return redirect()->route('user.index')
-                            ->with('success','Created successfully.');
+                return redirect()->route('login')
+                            ->with('success','Registered successfully. Log in Please');
             }else{
                 return redirect()->route('dashboard')
                             ->with('error',"Something went wrong.Please Try again.");

@@ -41,13 +41,20 @@
                     <i class="fa"></i>
                     Remember me
                 </label>
-            </div>
-
-
-            <div class="col-sm-7 text-right">
-                <a data-toggle="modal" href="#myModal"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
             </div> -->
 
+
+          <!--   <div class="col-sm-7 text-right">
+                <a data-toggle="modal" href="#myModal"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+            </div> -->
+          
+            <div class="col-sm-7">
+                <!-- <a href="recoverpw.html"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a> -->
+            </div>
+            <div class="col-sm-5 text-right">
+                <a href="{{route('register')}}">Create an account</a>
+            </div>
+                    
         </div>
 
         <div class="form-group text-right">
