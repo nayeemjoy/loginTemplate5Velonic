@@ -12,6 +12,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+        
         $roles = array_keys(config('customConfig.roles'));
         foreach ($roles as $role) {
             Role::create(['name'=>$role]);

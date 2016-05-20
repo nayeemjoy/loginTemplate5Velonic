@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        
         //Use this user for login as admin
         // User::create(['username' => 'rat','password' => bcrypt('a')]);
         //Use this user for login as user

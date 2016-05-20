@@ -14,7 +14,7 @@
                     <div class="panel-heading clear-fix">
                         <h3 class="panel-title pull-left">{{$title}}</h3>
                         <span class="pull-right">
-                            <a href="{{route('passportmaking.create')}}" class="btn btn-primary">Create Passport Making</a>
+                            <a href="{{route('example.create')}}" class="btn btn-primary">Create Example</a>
                         </span>
                     </div>
                     <div class="panel-body">
@@ -24,29 +24,25 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Passport No</th>
-                                            <th>Broker Name</th>
-                                            <th>Amount Of Money</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
 
                              
                                     <tbody>
-                                        @foreach($passport_makings as $passport_making)
+                                        @foreach($examples as $example)
                                             <tr>
 
-                                                <td>{{$passport_making->id}}</td>
-                                                <td>{{$passport_making->name}}</td>
-                                                <td>{{$passport_making->passport_no}}</td>
-                                                <td>{{$passport_making->broker_name}}</td>
-                                                <td>{{$passport_making->amount_of_money}}</td>
-
-                                                <!-- <td>Description</td> -->
+                                                <td>{{$example->id}}</td>
+                                                <td>{{$example->title}}</td>
+                                                <td>{{$example->description}}</td>
+                                                <td>{{$example->status}}</td>
                                                 <td class="actions">
-                                                    <a href="{{route('passportmaking.edit',$passport_making->id)}}" class="btn btn-info">Edit</a>
-                                                    <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $passport_making->id }}">Delete</a>
+                                                    <a href="{{route('example.edit',$example->id)}}" class="btn btn-info">Edit</a>
+                                                    <a href="#" class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $example->id }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -75,7 +71,7 @@
                     Are you sure to delete?
                 </div>
                 <div class="modal-footer">
-                    {!! Form::open(array('route' => array('passportmaking.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
+                    {!! Form::open(array('route' => array('example.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     {!! Form::submit('Yes, Delete', array('class' => 'btn btn-success')) !!}
                     {!! Form::close() !!}
@@ -98,7 +94,7 @@
         });
         $(document).on("click", ".deleteBtn", function() {
             var deleteId = $(this).attr('deleteId');
-            var url = "<?php echo URL::route('passportmaking.delete',false); ?>";
+            var url = "<?php echo URL::route('example.delete',false); ?>";
             $(".deleteForm").attr("action", url+'/'+deleteId);
         });
     </script>
